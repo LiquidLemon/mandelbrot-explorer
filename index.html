@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+<style>
+canvas {
+  border: 1px solid black;
+  display: block;
+}
+
+input {
+  width: 100px;
+}
+
+.hidden {
+  display: none;
+}
+</style>
+</head>
+<body>
+  <canvas id='canvas' width='500', height='500'></canvas>
+  <form id='form'>
+    <label>Zoom scale:
+      <input type='number' id='zoom' min='0' step='0.001' value='5'>
+    </label>
+    <label>Precision:
+      <input type='number' id='precision' min='0' value='100'>
+    </label>
+    <input type='submit' class='hidden'></input>
+  </form>
+  <button id='reset'>Reset</button>
+  <p>LMB to zoom in. RMB to zoom out.</p>
+  <script src='./bundle.js'></script>
+</body>
+</html>
