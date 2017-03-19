@@ -53,6 +53,8 @@ form.addEventListener('submit', (e) => {
   render();
 });
 
+colorscheme.addEventListener('change', render);
+
 download.addEventListener('click', (e) => {
   const img = canvas
     .toDataURL("image/png")
