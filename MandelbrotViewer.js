@@ -1,4 +1,5 @@
 import Complex from './Complex';
+import * as Gradients from './Gradients';
 
 export default class MandelbrotViewer {
   constructor() {
@@ -8,10 +9,10 @@ export default class MandelbrotViewer {
     this.precision = 100;
   }
 
-  render(canvas) {
+  render(canvas, colorscheme) {
     const ctx = canvas.getContext('2d');
     const data = ctx.createImageData(canvas.width, canvas.height);
-    const colors = this.constructor.getColors(this.precision);
+    const colors = this.constructor.getColors(this.precision, colorscheme);
     const step = {
       r: this.width / canvas.width,
       i: this.height / canvas.height
@@ -53,18 +54,8 @@ export default class MandelbrotViewer {
     this.center.i += trans.i;
   }
 
-  static getColors(amount) {
-    const colors = [];
-    for (let i = 0; i < amount; i++) {
-      let c = Math.floor(i/amount*255);
-      colors.push({
-        r: c,
-        g: c,
-        b: c,
-        a: 255
-      });
-    }
-    return colors;
+  static getColors(amount, colorscheme) {
+    return Gradients[colorscheme](amount);
   }
 
   static getLevel(point, maxLevel) {

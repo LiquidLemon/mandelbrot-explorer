@@ -1,4 +1,5 @@
 import MandelbrotViewer from './MandelbrotViewer';
+import * as Gradients from './Gradients';
 
 const canvas = document.getElementById('canvas');
 const reset = document.getElementById('reset');
@@ -6,10 +7,17 @@ const form = document.getElementById('form');
 const zoom = document.getElementById('zoom');
 const precision = document.getElementById('precision');
 const download = document.getElementById('download');
+const colorscheme = document.getElementById('colorscheme');
+
+Object.keys(Gradients).forEach((scheme) => {
+  const option = document.createElement('option');
+  option.value = option.innerHTML = scheme;
+  colorscheme.appendChild(option);
+});
 
 let view = new MandelbrotViewer();
 
-const render = () => { view.render(canvas) };
+const render = () => { view.render(canvas, colorscheme.value) };
 
 const getMousePos = (canvas, event) => {
   let rect = canvas.getBoundingClientRect();
