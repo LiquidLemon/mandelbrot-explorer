@@ -5,6 +5,7 @@ const reset = document.getElementById('reset');
 const form = document.getElementById('form');
 const zoom = document.getElementById('zoom');
 const precision = document.getElementById('precision');
+const download = document.getElementById('download');
 
 let view = new MandelbrotViewer();
 
@@ -33,15 +34,23 @@ canvas.addEventListener('contextmenu', (e) => {
   onclick(true)(e);
 });
 
-reset.addEventListener('click', function (e) {
+reset.addEventListener('click', (e) => {
   view = new MandelbrotViewer();
   render();
 });
 
-form.addEventListener('submit', function(e) {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
   view.precision = precision.value;
   render();
+});
+
+download.addEventListener('click', (e) => {
+  const img = canvas
+    .toDataURL("image/png")
+    .replace('image/octet-stream');
+  download.href = img;
+  download.download = 'mandelbrot.png';
 });
 
 render();
