@@ -19,12 +19,9 @@ canvas {
   cursor: zoom-in;
 }
 
-input[type='number'] {
-  width: 300px;
-}
-
-select {
-  width: 300px;
+select, input[type='number'] {
+  width: 200px;
+  margin: 0 10px;
 }
 
 .hidden {
