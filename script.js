@@ -26,21 +26,20 @@ Object.keys(Gradients).forEach((scheme) => {
 let view = new MandelbrotViewer();
 
 const update = () => {
-  view.precision = precision.value;
-  canvas.width = canvas.height = canvasSize.value;
+  view.precision = Number.parseInt(precision.value);
+  canvas.width = canvas.height = Number.parseInt(canvasSize.value);
 
   view.render(canvas, colorscheme.value);
 
-  console.log(view.center.r, view.center.i);
   centerR.value = view.center.r;
   centerI.value = view.center.i;
   width.value = view.width;
 };
 
 const updateSettings = () => {
-  view.width = view.height = width.value;
-  view.center.r = centerR.value;
-  view.center.i = centerI.value;
+  view.width = view.height = Number.parseFloat(width.value);
+  view.center.r = Number.parseFloat(centerR.value);
+  view.center.i = Number.parseFloat(centerI.value);
   update();
 };
 
@@ -52,7 +51,8 @@ const getMousePos = (canvas, event) => {
 };
 
 const magnify = (invert = false) => {
-  let value = invert ? 1/zoom.value : zoom.value;
+  let z = Number.parseInt(zoom.value);
+  let value = invert ? 1/z : z;
   return (e) => {
     view.moveTo(canvas, getMousePos(canvas, e));
     view.magnify(value);
