@@ -1,0 +1,75 @@
+* {
+  color: #111;
+}
+
+body {
+  text-align: center;
+}
+
+main {
+  display: inline-block;
+  padding: 10px;
+  margin: 0 auto;
+  background-color: #dcdcdc;
+  border-radius: 5px;
+}
+
+canvas {
+  display: block;
+  cursor: zoom-in;
+}
+
+input[type='number'] {
+  width: 300px;
+}
+
+select {
+  width: 300px;
+}
+
+.hidden {
+  display: none;
+}
+
+ul {
+  display: inline-block;
+  list-style: none;
+  padding: 5px 0;
+  margin: auto;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  margin: 5px 0px;
+}
+
+.space-out {
+  justify-content: space-between;
+}
+
+.center {
+  justify-content: center;
+}
+
+.button {
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0px 5px;
+  background-color: #c3c3c3;
+  border: 1px solid #8a7fd4;
+  border-radius: 2px;
+  text-decoration: none;
+  padding: 3px 5px;
+  font-size: 0.8em;
+  font-family: Arial;
+}
+
+.button:hover {
+  background-color: #eee;
+  cursor: pointer;
+};
+
+.button a, .button a:visited {
+  color: #111;
+}
