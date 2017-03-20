@@ -84,7 +84,9 @@ download.addEventListener('click', (e) => {
     .toDataURL("image/png")
     .replace('image/octet-stream');
   download.href = img;
-  download.download = 'mandelbrot.png';
+  const filename =
+    `mandelbrot_${centerR.value}_${centerI.value}_${width.value}.png`;
+  download.download = filename;
 });
 
 update();
