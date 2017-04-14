@@ -1,5 +1,5 @@
-import MandelbrotViewer from './MandelbrotViewer';
-import * as Gradients from './Gradients';
+import MandelbrotViewer from './lib/MandelbrotViewer';
+import * as Gradients from './lib/Gradients';
 
 const canvas = document.getElementById('canvas');
 const reset = document.getElementById('reset');
